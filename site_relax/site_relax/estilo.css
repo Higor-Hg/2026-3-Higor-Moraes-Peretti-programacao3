@@ -57,6 +57,8 @@ header{
 nav{
     background-color:#685634;
     width: 100%; 
+    height: 30px;
+    position: fixed;
 }
 nav ul{
     display: flex;
@@ -71,6 +73,8 @@ nav ul li a{
 nav ul li a:hover{
     background-color: #f1f1f1;
     color: #685634;
+
+
 }
 .conteudo{
     display: flex;
@@ -108,5 +112,5 @@ button{
     width: 90%;
     display: flex;
     justify-content: center;
-    
+
 }
