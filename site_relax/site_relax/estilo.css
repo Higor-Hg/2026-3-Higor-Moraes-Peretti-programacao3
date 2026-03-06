@@ -1,0 +1,99 @@
+/*
+Paleta de cores:
+#685634
+#7B6B43
+#5C415D
+#D3D4D9
+*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.carrossel{
+   width: 100%; 
+}
+h1, h2, h3{
+    font-family: 'Brush Script MT', cursive;
+}
+p{
+    font-family: Georgia, serif;
+    font-size:12px;
+    color:gray;
+}
+h2{
+    color:darkmagenta;
+}
+h3{
+    color:#685634;
+}
+
+/*link nao visitado*/
+.link1:link{
+    color: #685634;
+    text-decoration: none; /*remove o underline*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+}
+/*link visitado*/
+.link1:visited{
+    color: #5C415D;
+}
+/*link passa o mouse*/
+.link1:hover{
+    color: blue;
+}
+header{
+    position: relative;
+}
+.logo{
+    font-family: "Sofia", sans-serif;
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+nav{
+    background-color:#685634;
+    width: 100%; 
+}
+nav ul{
+    display: flex;
+    list-style-type: none; /*remove os circulos dos itens*/
+}
+nav ul li a{
+    display: block;
+    color: #f1f1f1;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    background-color: #f1f1f1;
+    color: #685634;
+}
+.conteudo{
+    display: flex;
+}
+aside{
+    width: 80%; 
+    display: block;    
+    padding: 10px;
+}
+article{
+    padding: 10px;
+}
+section{
+    width: 20%; 
+    display: block;    
+    padding: 10px;
+}
+footer{
+    background-color: #685634;
+    width: 100%; 
+    padding: 10px;
+}
+footer p{
+    text-align: center;
+    color: white;
+}
