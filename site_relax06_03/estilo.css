@@ -9,9 +9,7 @@ Paleta de cores:
     padding: 0px;
     margin: 0px;
 }
-.carrossel{
-   width: 100%; 
-}
+
 h1, h2, h3{
     font-family: 'Brush Script MT', cursive;
 }
@@ -43,16 +41,23 @@ h3{
 .link1:hover{
     color: blue;
 }
-header{
-    position: relative;
+header{   
+}
+.carrossel{
+   width: 100%;   
+   margin-top: 30px;
 }
 .logo{
     font-family: "Sofia", sans-serif;
-    font-size: 50px;
-    color: white;
+    font-size: 40px;
+    color: black;
     position: absolute;
-    top: 20px;
+    top: 40px;
     left: 50px;
+    background-color: white;
+    opacity: 0.5;
+    padding: 5px 50px;
+    border-radius: 20px;    
 }
 nav{
     background-color:#685634;
@@ -67,18 +72,52 @@ nav ul{
 nav ul li a{
     display: block;
     color: #f1f1f1;
-    padding: 14px 16px;
+    padding: 6px 16px;
     text-decoration: none;
 }
 nav ul li a:hover{
     background-color: #f1f1f1;
     color: #685634;
-
-
 }
 .conteudo{
     display: flex;
 }
+/* galeria */
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.gallery-item{
+    margin: 5px;
+    border: 1px dotted #685634;
+    width: 22%;
+    padding: 5px;
+    border-radius: 20px;
+}
+.gallery-item img{
+    width: 100%;
+    border-radius: 20px;
+}
+.gallery-item:hover{
+    background: lightgray;
+}
+.gallery-item .desc{
+    padding: 10px;
+    text-align: center;
+}
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 aside{
     width: 80%; 
     display: block;    
@@ -100,17 +139,4 @@ footer{
 footer p{
     text-align: center;
     color: white;
-}
-
-button{
-    font-family: "Audiowide", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.site{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-
 }
