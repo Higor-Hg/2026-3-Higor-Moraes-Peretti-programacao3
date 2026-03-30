@@ -1,0 +1,348 @@
+/* --- CONFIGURAÇÕES GLOBAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ddd;
+}
+
+h1, h2, h3, h4 {
+    color: #222;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- BOTÕES --- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #eee;
+    transform: translateY(-2px);
+}
+
+/* --- HEADER E MENU --- */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #000;
+}
+
+.logo span {
+    color: #d4af37; /* Dourado da Bola de Ouro */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4A90E2; /* Azul Seleção Argentina */
+}
+
+/* --- HERO SECTION (DESTAQUE) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* --- RECURSOS (3 CAIXAS) --- */
+.features {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.feature-box p {
+    flex-grow: 1;
+}
+
+/* --- SOBRE NÓS E DEPOIMENTOS --- */
+.about-testimonials {
+    display: flex;
+    gap: 50px;
+}
+
+.about {
+    flex: 1;
+}
+
+.about-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.testimonials {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-box {
+    display: flex;
+    background: #fff;
+    border-left: 4px solid #d4af37;
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.quote-icon {
+    font-size: 30px;
+}
+
+.quote-text p {
+    font-style: italic;
+    color: #444;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.quote-text .author {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- SERVIÇOS / ESTATÍSTICAS --- */
+.services-grid {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.service-box {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.service-box h4 {
+    color: #d4af37;
+    font-size: 1.3rem;
+}
+
+/* --- FORMULÁRIO DE CONTATO --- */
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.contact input:focus, .contact textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.socials a {
+    margin-left: 20px;
+    color: #bbb;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: #fff;
+}
+
+/* --- RESPONSIVIDADE (Celulares e Tablets) --- */
+@media (max-width: 768px) {
+    .hero, .features, .about-testimonials, .services-grid, .footer-content {
+        flex-direction: column;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+    
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
+    }
+    
+    .btn-primary {
+        display: block;
+    }
+
+    .footer-content {
+        gap: 20px;
+    }
+}
+
+/* --- CLASSES DE ANIMAÇÃO DO JAVASCRIPT --- */
+.escondido {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
