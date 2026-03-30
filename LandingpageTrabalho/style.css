@@ -27,10 +27,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 10%;
-  background: linear-gradient(90deg,#000,#111);
+  background: linear-gradient(90deg, #000, #111);
   border-bottom: 3px solid var(--vermelho);
   position: sticky;
   top: 0;
+  z-index: 9999;
 }
 
 .logo img {
@@ -81,7 +82,7 @@ nav a:hover::after {
   padding: 100px 10%;
   background: 
     linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,85,164,0.7)),
-    url("imagens/bg.png") center/cover no-repeat;
+    url("imagens/ImagemFundo.jpg") center/cover no-repeat;
   color: white;
 }
 
@@ -135,17 +136,14 @@ nav a:hover::after {
 }
 
 /* LOGO FLUTUANTE */
-header {
-  z-index: 9999;
-  position: sticky;
-  top: 0;
-}
 .hero-img {
   width: 420px;
   height: 260px;
   background: url("imagens/logoflutuantesemfundo.png") center/contain no-repeat;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes float {
@@ -153,10 +151,7 @@ header {
   50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
 }
-.hero-img {
-  position: relative;
-  z-index: 1;
-}
+
 /* FEATURES */
 .features {
   display: flex;
@@ -174,12 +169,24 @@ header {
   border-radius: 10px;
   transition: 0.3s;
   border-bottom: 4px solid transparent;
+  
+  /* Adicionado para centralizar a imagem e os textos */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
 }
 
 .feature-box:hover {
   transform: translateY(-10px);
   border-bottom: 4px solid var(--azul);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-box img {
+  width: 80px; 
+  height: auto;
+  margin-bottom: 15px;
+  object-fit: contain;
 }
 
 .feature-box h3 {
@@ -189,6 +196,7 @@ header {
 .feature-box p {
   color: #666;
 }
+
 /* TITULOS */
 .section-title {
   text-align: center;
@@ -213,14 +221,27 @@ header {
 .service {
   flex: 1;
   padding: 30px;
-  background: rgba(255,255,255,0.05);
+  background: rgb(26, 26, 26);
   border-radius: 10px;
   transition: 0.3s;
+  
+  /* Adicionado para centralizar e deixar com o estilo do print final */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  border: 1px solid rgba(29, 23, 23, 0.1);
 }
 
 .service:hover {
   background: var(--azul);
   transform: translateY(-5px);
+}
+
+.service img {
+  width: 50px; 
+  height: auto;
+  margin-bottom: 15px;
+  object-fit: contain;
 }
 
 .service h4 {
@@ -263,6 +284,7 @@ header {
 .contact button:hover {
   background: var(--vermelho-hover);
 }
+
 /* FOOTER */
 footer {
   text-align: center;
