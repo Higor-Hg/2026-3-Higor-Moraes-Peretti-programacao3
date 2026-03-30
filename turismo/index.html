@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="CSS/bootstrap.min.css"
+  rel="stylesheet">
+  <script src="JS/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    
+<div class="container-fluid p-5 bg-primary text-white text-center">
+
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+<div class="carrousel-indicators">
+    <button type="button" data-bs-tarfet="#demo" data-bs-slide="0"class="active"></button>
+    <button type="button" data-bs-tarfet="#demo" data-bs-slide="1"></button>
+    <button type="button" data-bs-tarfet="#demo" data-bs-slide="2"></button>
+</div>
+<!--Carrousel das imagens-->
+<div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src="imagens/pzo2.jpg" alt="Texto da img 01" class="d-block w-100">
+  </div>
+
+    <div class="carousel-item">
+    <img src="imagens/pzo2.jpg" alt="Texto da img 02" class="d-block w-100">
+  </div>
+
+    <div class="carousel-item">
+    <img src="imagens/pzo2.jpg" alt="Texto da img 03" class="d-block w-100">
+  </div>
+
+
+<div class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</div>
+
+<div class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
