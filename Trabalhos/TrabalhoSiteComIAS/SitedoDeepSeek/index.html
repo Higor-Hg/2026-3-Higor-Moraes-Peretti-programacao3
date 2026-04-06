@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Dalebol | A escolha certa para cada jogo</title>
+  <!-- Google Fonts para um visual profissional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7fc;
+      color: #1a2c3e;
+      line-height: 1.4;
+    }
+
+    /* Container principal com sidebar e conteúdo */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ========= SIDEBAR (barra lateral com funções: pedidos, contato etc) ========= */
+    .sidebar {
+      width: 280px;
+      background: #ffffff;
+      border-right: 1px solid #e2e8f0;
+      padding: 2rem 1.5rem;
+      flex-shrink: 0;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.02);
+      transition: all 0.2s;
+    }
+
+    .logo-area {
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #ff5e1a;
+      display: inline-block;
+    }
+    .logo-area h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0b2b3b;
+    }
+    .logo-area span {
+      color: #ff5e1a;
+    }
+
+    /* Menu funções laterais (pedidos, contato, etc) */
+    .side-functions {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .func-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #2c3e50;
+      padding: 10px 12px;
+      border-radius: 14px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .func-item i {
+      width: 26px;
+      font-size: 1.3rem;
+      color: #ff5e1a;
+    }
+    .func-item:hover {
+      background-color: #ffefe7;
+      color: #d6490c;
+    }
+
+    /* Filtros: Marcas e Preços (conforme wireframe) */
+    .filter-section {
+      margin-top: 1rem;
+    }
+    .filter-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 1.2rem 0 0.8rem 0;
+      letter-spacing: -0.2px;
+      border-left: 4px solid #ff5e1a;
+      padding-left: 12px;
+    }
+    .brand-list, .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .brand-item, .price-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2d3e50;
+      transition: 0.1s;
+    }
+    .brand-item.active-filter, .price-item.active-filter {
+      color: #ff5e1a;
+      font-weight: 700;
+    }
+    .brand-item input, .price-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: #ff5e1a;
+      cursor: pointer;
+    }
+    .price-range-custom {
+      margin-top: 12px;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 40px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .price-range-custom input {
+      width: 80px;
+      padding: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+    .btn-filter {
+      background: #ff5e1a;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      cursor: pointer;
+    }
+
+    /* ========= CONTEÚDO PRINCIPAL ========= */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Barra SUPERIOR (rolagem de textos: bolas recomendadas) */
+    .top-ticker {
+      background: #0f2c39;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 5;
+    }
+    .ticker-content {
+      display: inline-block;
+      animation: scrollTicker 22s linear infinite;
+      padding-left: 100%;
+    }
+    .ticker-content span {
+      margin-right: 2.5rem;
+    }
+    .ticker-content i {
+      margin-right: 6px;
+      color: #ffb347;
+    }
+    @keyframes scrollTicker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Barra de busca */
+    .search-bar-area {
+      background: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      border-bottom: 1px solid #e9edf2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .search-wrapper {
+      display: flex;
+      flex: 2;
+      min-width: 220px;
+      background: #f1f5f9;
+      border-radius: 60px;
+      align-items: center;
+      padding: 4px 12px;
+    }
+    .search-wrapper i {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+    .search-wrapper input {
+      border: none;
+      background: transparent;
+      padding: 12px 12px;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+      font-weight: 400;
+    }
+    .cart-icon {
+      background: #ffefe7;
+      padding: 8px 18px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cart-icon i {
+      color: #ff5e1a;
+      font-size: 1.3rem;
+    }
+
+    /* Destaque LANÇAMENTO conforme imagem base */
+    .hero-lancamento {
+      background: linear-gradient(135deg, #101f2c 0%, #1b3a4b 100%);
+      margin: 1.5rem 1.5rem 0 1.5rem;
+      border-radius: 32px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .hero-text h4 {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      background: #ff5e1a30;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+    .hero-text h1 {
+      font-size: 2.2rem;
+      margin: 12px 0 4px;
+    }
+    .hero-text p {
+      opacity: 0.8;
+      font-weight: 400;
+    }
+    .hero-badge {
+      background: #ff5e1a;
+      padding: 8px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* GRADE DE PRODUTOS (bolas) */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.8rem;
+      padding: 2rem 1.5rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: all 0.2s ease;
+      border: 1px solid #eef2f6;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+      border-color: #ffcdb0;
+    }
+    .product-img {
+      background: #f5f9ff;
+      text-align: center;
+      padding: 1.8rem 1rem;
+      font-size: 4rem;
+    }
+    .product-info {
+      padding: 1.2rem 1rem 1.5rem;
+    }
+    .product-brand {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ff5e1a;
+      letter-spacing: 1px;
+    }
+    .product-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin: 6px 0;
+    }
+    .product-variant {
+      font-size: 0.75rem;
+      color: #3f5e74;
+      margin-bottom: 10px;
+      background: #f0f4f9;
+      display: inline-block;
+      padding: 2px 12px;
+      border-radius: 20px;
+    }
+    .product-price {
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin: 12px 0 8px;
+    }
+    .btn-buy {
+      background: #0f2c39;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-buy:hover {
+      background: #ff5e1a;
+    }
+
+    /* Rodapé / comparacao rapida */
+    .comparison-banner {
+      background: #ffffff;
+      margin: 0 1.5rem 2rem 1.5rem;
+      border-radius: 24px;
+      padding: 1rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      border: 1px solid #eef2f6;
+    }
+    .comp-text {
+      font-weight: 600;
+    }
+    .comp-buttons button {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-left: 8px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* responsivo */
+    @media (max-width: 780px) {
+      .sidebar {
+        width: 240px;
+        padding: 1rem;
+      }
+      .hero-text h1 {
+        font-size: 1.5rem;
+      }
+      .products-grid {
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 650px) {
+      .app-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 1rem;
+      }
+      .side-functions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* mensagens de nenhum resultado */
+    .no-results {
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.2rem;
+      color: #5a6e7c;
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <!-- SIDEBAR (marcas, preços, funções laterais: pedidos, contato) -->
+  <aside class="sidebar">
+    <div class="logo-area">
+      <h2>DALE<span>BOL</span></h2>
+    </div>
+    <div class="side-functions">
+      <div class="func-item" id="meusPedidosBtn">
+        <i class="fas fa-truck-fast"></i> <span>Meus Pedidos</span>
+      </div>
+      <div class="func-item" id="contatoBtn">
+        <i class="fas fa-headset"></i> <span>Entrar em contato</span>
+      </div>
+      <div class="func-item" id="compararBtn">
+        <i class="fas fa-chart-line"></i> <span>Comparar bolas</span>
+      </div>
+      <div class="func-item" id="favoritosBtn">
+        <i class="far fa-heart"></i> <span>Favoritos</span>
+      </div>
+    </div>
+
+    <!-- MARCAS (wireframe) -->
+    <div class="filter-section">
+      <div class="filter-title">Marcas</div>
+      <div class="brand-list" id="brandFilters">
+        <!-- gerado via js com base nos produtos, mas com CHAMPIONS, CAMPEONES etc conforme wireframe -->
+      </div>
+    </div>
+
+    <!-- PREÇOS (wireframe) -->
+    <div class="filter-section">
+      <div class="filter-title">Preços</div>
+      <div class="price-list" id="priceFilters">
+        <label class="price-item"><input type="radio" name="priceRange" value="all" checked> Todos os preços</label>
+        <label class="price-item"><input type="radio" name="priceRange" value="0-150"> Até R$150</label>
+        <label class="price-item"><input type="radio" name="priceRange" value="150-300"> R$150 - R$300</label>
+        <label class="price-item"><input type="radio" name="priceRange" value="300-600"> R$300 - R$600</label>
+        <label class="price-item"><input type="radio" name="priceRange" value="600+"> Acima de R$600</label>
+      </div>
+      <div class="price-range-custom">
+        <input type="number" id="minPrice" placeholder="Mínimo" value="">
+        <span>—</span>
+        <input type="number" id="maxPrice" placeholder="Máximo" value="">
+        <button class="btn-filter" id="customPriceBtn">Aplicar</button>
+      </div>
+    </div>
+    <div style="margin-top: 24px; font-size:0.7rem; color:#7f8c8d;">
+      <i class="fas fa-futbol"></i> Qualidade para cada jogo
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <!-- Barra superior rolante (recomendações / bolas em destaque) -->
+    <div class="top-ticker">
+      <div class="ticker-content">
+        <span><i class="fas fa-star"></i> Bola recomendada: DALEBOL CHROMO FIFA BOLD</span>
+        <span><i class="fas fa-futbol"></i> ⚽ LANÇAMENTO - FUTEBOL DE CAMPO</span>
+        <span><i class="fas fa-trophy"></i> Bola Society - a mais vendida</span>
+        <span><i class="fas fa-fire"></i> Bola de Futsal Máxima aderência</span>
+        <span><i class="fas fa-chart-simple"></i> Comparação entre marcas: POWERSOFT® vs CHAMPIONS</span>
+      </div>
+    </div>
+
+    <!-- Barra de busca e ícone carrinho (funcional simbólico) -->
+    <div class="search-bar-area">
+      <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Buscar bola por nome, marca ou tipo... Ex: FIFA, Society, Campo">
+      </div>
+      <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-bag"></i> <span>Pedido</span>
+      </div>
+    </div>
+
+    <!-- Destaque Lançamento -->
+    <div class="hero-lancamento">
+      <div class="hero-text">
+        <h4>⚡ LANÇAMENTO</h4>
+        <h1>DALEBOL CHROMO<br>FIFA BOLD</h1>
+        <p>Tecnologia de elite, performance máxima em campo</p>
+      </div>
+      <div class="hero-badge" id="lancamentoComprar">
+        Comprar <i class="fas fa-arrow-right"></i>
+      </div>
+    </div>
+
+    <!-- Grid de produtos (bolas de futebol para cada variação do esporte) -->
+    <div class="products-grid" id="productsGrid">
+      <!-- produtos renderizados via js -->
+    </div>
+
+    <!-- Comparação extra e funcionalidades -->
+    <div class="comparison-banner">
+      <div class="comp-text"><i class="fas fa-chart-simple"></i> Compare modelos e preços</div>
+      <div class="comp-buttons">
+        <button id="quickCompareBtn">Comparar Selecionados</button>
+        <button id="resetFiltersBtn">Limpar filtros</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==================== BASE DE DADOS: BOLAS DE FUTEBOL PARA CADA VARIAÇÃO ====================
+  const products = [
+    { id: 1, name: "DALEBOL CHROMO FIFA BOLD", brand: "Dalebol", category: "Campo Profissional", price: 499, type: "campo", badge: "FIFA Quality", imgIcon: "⚽" },
+    { id: 2, name: "POWERSOFT® Pro Match", brand: "POWERSOFT®", category: "Futebol de Campo", price: 349, type: "campo", imgIcon: "🏆" },
+    { id: 3, name: "CHAMPIONS League OMB", brand: "CHAMPIONS", category: "Campo Oficial", price: 289, type: "campo", imgIcon: "🌟" },
+    { id: 4, name: "CAMPEONES Gold", brand: "CAMPEONES", category: "Society", price: 199, type: "society", imgIcon: "🥅" },
+    { id: 5, name: "RIDAR Futsal Max Grip", brand: "RIDAR", category: "Futsal", price: 159, type: "futsal", imgIcon: "🧤" },
+    { id: 6, name: "Concorde Elite Futebol Areia", brand: "Concorde", category: "Beach Soccer", price: 229, type: "beach", imgIcon: "🏖️" },
+    { id: 7, name: "POWERSOFT® Futsal Pro", brand: "POWERSOFT®", category: "Futsal", price: 179, type: "futsal", imgIcon: "⚡" },
+    { id: 8, name: "Dalebol Society Tech", brand: "Dalebol", category: "Society", price: 219, type: "society", imgIcon: "🚀" },
+    { id: 9, name: "CHAMPIONS Areia Pro", brand: "CHAMPIONS", category: "Beach Soccer", price: 245, type: "beach", imgIcon: "🌊" },
+    { id: 10, name: "CAMPEONES FIFA Basic", brand: "CAMPEONES", category: "Campo", price: 189, type: "campo", imgIcon: "🥇" },
+    { id: 11, name: "Concorde Discordar (Ed Limitada)", brand: "Concorde", category: "Futebol de Salão", price: 319, type: "futsal", imgIcon: "🎯" },
+    { id: 12, name: "RIDAR Strike Campo", brand: "RIDAR", category: "Campo", price: 399, type: "campo", imgIcon: "💥" }
+  ];
+
+  // Função para extrair marcas únicas
+  function getUniqueBrands() {
+    const brandsSet = new Set();
+    products.forEach(p => brandsSet.add(p.brand));
+    // Ordem desejada: conforme wireframe incluir CHAMPIONS, CAMPEONES, e também POWERSOFT, Dalerol...
+    const sorted = Array.from(brandsSet).sort();
+    return sorted;
+  }
+
+  let activeBrandFilters = [];   // marcas selecionadas (várias)
+  let activePriceFilter = "all"; // radio ou custom
+  let customMin = null, customMax = null;
+  let searchTerm = "";
+
+  // Referências DOM
+  const productsGrid = document.getElementById("productsGrid");
+  const brandFiltersContainer = document.getElementById("brandFilters");
+  const searchInput = document.getElementById("searchInput");
+  const resetBtn = document.getElementById("resetFiltersBtn");
+  const customPriceBtn = document.getElementById("customPriceBtn");
+  const minPriceInput = document.getElementById("minPrice");
+  const maxPriceInput = document.getElementById("maxPrice");
+
+  // Renderizar filtros de marca
+  function renderBrandFilters() {
+    const brands = getUniqueBrands();
+    brandFiltersContainer.innerHTML = "";
+    // Adicionar "Todas as marcas" como opção extra (checkbox)
+    const allBrandsDiv = document.createElement("label");
+    allBrandsDiv.className = "brand-item";
+    allBrandsDiv.innerHTML = `<input type="checkbox" id="brand_all" value="all_brands"> Todas as marcas`;
+    brandFiltersContainer.appendChild(allBrandsDiv);
+    const allCheck = allBrandsDiv.querySelector("input");
+    allCheck.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        activeBrandFilters = [];
+        document.querySelectorAll('.brand-item input[type="checkbox"]:not(#brand_all)').forEach(cb => cb.checked = false);
+        renderProducts();
+      }
+    });
+
+    brands.forEach(brand => {
+      const label = document.createElement("label");
+      label.className = "brand-item";
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.value = brand;
+      cb.checked = activeBrandFilters.includes(brand);
+      cb.addEventListener("change", (e) => {
+        if (e.target.checked) {
+          // desmarcar "todas as marcas" se necessário
+          const allBrandsCheck = document.getElementById("brand_all");
+          if(allBrandsCheck) allBrandsCheck.checked = false;
+          if (!activeBrandFilters.includes(brand)) activeBrandFilters.push(brand);
+        } else {
+          activeBrandFilters = activeBrandFilters.filter(b => b !== brand);
+        }
+        renderProducts();
+      });
+      label.appendChild(cb);
+      label.appendChild(document.createTextNode(` ${brand}`));
+      brandFiltersContainer.appendChild(label);
+    });
+  }
+
+  // verificar preço
+  function isPriceInRange(price) {
+    if (activePriceFilter === "all") return true;
+    if (activePriceFilter === "0-150") return price <= 150;
+    if (activePriceFilter === "150-300") return price > 150 && price <= 300;
+    if (activePriceFilter === "300-600") return price > 300 && price <= 600;
+    if (activePriceFilter === "600+") return price > 600;
+    return true;
+  }
+  
+  function customPriceCheck(price) {
+    if (customMin !== null && price < customMin) return false;
+    if (customMax !== null && price > customMax) return false;
+    return true;
+  }
+
+  function filterProducts() {
+    let filtered = products.filter(p => {
+      // busca textual
+      const matchSearch = searchTerm === "" || p.name.toLowerCase().includes(searchTerm.toLowerCase()) || p.brand.toLowerCase().includes(searchTerm.toLowerCase()) || p.category.toLowerCase().includes(searchTerm.toLowerCase());
+      if (!matchSearch) return false;
+      // filtro marca (se ativo)
+      if (activeBrandFilters.length > 0 && !activeBrandFilters.includes(p.brand)) return false;
+      // filtro preço padrão (radio)
+      let priceOk = isPriceInRange(p.price);
+      if (priceOk && (customMin !== null || customMax !== null)) {
+        priceOk = customPriceCheck(p.price);
+      }
+      return priceOk;
+    });
+    return filtered;
+  }
+
+  function renderProducts() {
+    const filtered = filterProducts();
+    if (filtered.length === 0) {
+      productsGrid.innerHTML = `<div class="no-results"><i class="fas fa-futbol"></i> Nenhuma bola encontrada. Tente outros filtros.<br>🔍 Explore nossa coleção!</div>`;
+      return;
+    }
+    productsGrid.innerHTML = filtered.map(prod => `
+      <div class="product-card" data-id="${prod.id}">
+        <div class="product-img">
+          <i class="fas fa-futbol" style="font-size: 3.8rem; color:#ff5e1a;"></i> ${prod.imgIcon}
+        </div>
+        <div class="product-info">
+          <div class="product-brand">${prod.brand}</div>
+          <div class="product-title">${prod.name}</div>
+          <div class="product-variant">${prod.category} | ${prod.type?.toUpperCase()}</div>
+          <div class="product-price">R$ ${prod.price.toFixed(2)}</div>
+          <button class="btn-buy add-to-cart" data-name="${prod.name}" data-price="${prod.price}">ESCOLHER & COMPRAR</button>
+        </div>
+      </div>
+    `).join('');
+    // eventos para os botões comprar (simular pedido)
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const name = btn.getAttribute('data-name');
+        alert(`🛒 "${name}" adicionado ao pedido! Em breve você finaliza a compra.`);
+      });
+    });
+  }
+
+  // atualizar filtro de preço por radio
+  function bindPriceRadios() {
+    const radios = document.querySelectorAll('input[name="priceRange"]');
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.value === "all") activePriceFilter = "all";
+        else activePriceFilter = e.target.value;
+        customMin = null;
+        customMax = null;
+        minPriceInput.value = "";
+        maxPriceInput.value = "";
+        renderProducts();
+      });
+    });
+  }
+
+  // custom price
+  customPriceBtn.addEventListener('click', () => {
+    const minVal = minPriceInput.value.trim();
+    const maxVal = maxPriceInput.value.trim();
+    customMin = minVal !== "" ? Number(minVal) : null;
+    customMax = maxVal !== "" ? Number(maxVal) : null;
+    if ((customMin !== null && isNaN(customMin)) || (customMax !== null && isNaN(customMax))) {
+      alert("Insira valores numéricos válidos.");
+      return;
+    }
+    // ao aplicar custom, desmarcar radios
+    const radios = document.querySelectorAll('input[name="priceRange"]');
+    radios.forEach(r => r.checked = false);
+    activePriceFilter = "custom";
+    renderProducts();
+  });
+
+  searchInput.addEventListener('input', (e) => {
+    searchTerm = e.target.value;
+    renderProducts();
+  });
+
+  resetBtn.addEventListener('click', () => {
+    activeBrandFilters = [];
+    activePriceFilter = "all";
+    customMin = null;
+    customMax = null;
+    searchTerm = "";
+    searchInput.value = "";
+    minPriceInput.value = "";
+    maxPriceInput.value = "";
+    const radios = document.querySelectorAll('input[name="priceRange"]');
+    radios.forEach(r => { if(r.value === "all") r.checked = true; });
+    const allBrandsCheck = document.getElementById("brand_all");
+    if(allBrandsCheck) allBrandsCheck.checked = true;
+    document.querySelectorAll('.brand-item input[type="checkbox"]:not(#brand_all)').forEach(cb => cb.checked = false);
+    renderProducts();
+  });
+
+  // funções laterais (simulação)
+  document.getElementById("meusPedidosBtn").addEventListener('click', () => alert("📦 Seus pedidos: Nenhum pedido recente. Faça sua escolha e finalize!"));
+  document.getElementById("contatoBtn").addEventListener('click', () => alert("📞 Entre em contato: (11) 4002-8922 | suporte@dalebol.com"));
+  document.getElementById("compararBtn").addEventListener('click', () => alert("⚖️ Compare bolas: Selecione até 3 modelos e veja diferenças técnicas (em breve total)."));
+  document.getElementById("favoritosBtn").addEventListener('click', () => alert("❤️ Seus favoritos: Nenhum favorito ainda. Clique no coração nos produtos!"));
+  document.getElementById("cartIcon").addEventListener('click', () => alert("🛍️ Seu carrinho de pedidos: Adicione bolas clicando em 'ESCOLHER & COMPRAR'"));
+  document.getElementById("lancamentoComprar").addEventListener('click', () => alert("✨ DALEBOL CHROMO FIFA BOLD - Bola oficial de altíssima performance. Adicione ao carrinho!"));
+  document.getElementById("quickCompareBtn").addEventListener('click', () => alert("🔍 Comparação rápida: Modelos em destaque: DALEBOL CHROMO (R$499) e POWERSOFT® Pro (R$349). Desempenho top."));
+
+  // inicializar
+  function init() {
+    renderBrandFilters();
+    bindPriceRadios();
+    renderProducts();
+    // setar "todas as marcas" checked por padrão
+    const allBrandsCheck = document.getElementById("brand_all");
+    if(allBrandsCheck) allBrandsCheck.checked = true;
+  }
+  init();
+</script>
+</body>
+</html>
+
+
+css
+
