@@ -1,0 +1,259 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+  --azul: #081458;
+  --azul-claro: #3b82f6;
+  --verde: #8cc63f;
+  --fundo: #f5f7fa;
+  --card: #ffffff;
+  --texto: #1e293b;
+  --cinza: #64748b;
+  --borda: #e2e8f0;
+}
+
+/* BODY */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+/* ===== BARRA ANIMADA ===== */
+.barra-animada {
+  background: var(--azul);
+  color: white;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.texto-rolante {
+  display: inline-block;
+  animation: rolar 25s linear infinite;
+}
+
+.texto-rolante span {
+  margin: 0 25px;
+}
+
+@keyframes rolar {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== HEADER ===== */
+.main-header {
+  background: black;
+  padding: 15px 0;
+}
+
+.header-container {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  font-size: 32px;
+  color: var(--verde);
+}
+
+/* BOLAS */
+.bolas-animadas span {
+  font-size: 22px;
+  margin-left: 5px;
+  animation: subir 2s infinite;
+}
+
+@keyframes subir {
+  50% { transform: translateY(-10px); }
+}
+
+/* BUSCA */
+.search-box {
+  display: flex;
+  width: 40%;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px;
+}
+
+.search-box button {
+  background: var(--azul-claro);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+}
+
+/* LOGIN */
+.auth-nav button {
+  margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-text {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+}
+
+.btn-solid {
+  background: var(--azul-claro);
+  border: none;
+  color: white;
+}
+
+/* ===== LAYOUT ===== */
+.layout-principal {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 30px auto;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-esquerda {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.sidebar-esquerda ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar-esquerda a {
+  text-decoration: none;
+  color: var(--texto);
+}
+
+/* FILTROS */
+.filtros-laterais select {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 300px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 40px;
+}
+
+/* ===== CARDS ===== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card-bola {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card-bola:hover {
+  transform: translateY(-5px);
+}
+
+.card-bola button {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--azul-claro);
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+/* ===== MARCAS ===== */
+.marcas-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.marcas-grid div {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* ===== TABELA ===== */
+table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid var(--borda);
+}
+
+/* ===== PROMO ===== */
+.promo-card {
+  background: var(--azul);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== FOOTER ===== */
+.rodape {
+  background: #0f172a;
+  color: white;
+  margin-top: 50px;
+  padding: 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 900px) {
+  .layout-principal {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .marcas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

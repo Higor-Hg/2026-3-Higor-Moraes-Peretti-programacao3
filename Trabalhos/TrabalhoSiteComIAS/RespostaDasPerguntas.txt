@@ -1,0 +1,38 @@
+Trabalho Site com IAs: Relatório
+
+IAs usadas: Gemini e DeepSeek
+
+Gemini:
+
+1. Estrutura: A IA utilizou tags semânticas corretamente ou apenas <div>?
+Sim, a IA utilizou tags semânticas do HTML5 corretamente. Em vez de usar apenas <div>, o código foi estruturado com <header> para o cabeçalho, <nav> para as barras de navegação, <aside> para a barra lateral retrátil, <main> para o conteúdo principal, <section> para separar as marcas e preços, <article> para os cards de produtos e <footer> para o rodapé. Isso garante que o site seja acessível e bem interpretado pelos motores de busca.
+
+2. CSS: O layout foi feito com Flexbox/Grid ou a IA usou métodos antigos?
+O layout foi construído utilizando as técnicas mais modernas de CSS3. Foi aplicado Flexbox no cabeçalho (header) para alinhar a logo, a barra de busca e os botões de forma dinâmica. Para as seções de "Marcas" e "Preços", utilizou-se CSS Grid para criar a grade de 5 colunas exatamente como solicitado no wireframe, garantindo um alinhamento perfeito e responsivo.
+
+3. Comparação: Qual IA entendeu melhor o seu wireframe? Por quê?
+O Gemini entendeu melhor o wireframe porque conseguiu interpretar elementos visuais específicos do desenho, como a posição exata da logo à esquerda e o letreiro passante no topo. Além disso, manteve bastante fidelidade ao esboço original. Os comentários que o Gemini fez mostraram-se mais fáceis de entender.
+
+4. Desafio: Qual foi o maior erro que você precisou consertar manualmente?
+O maior desafio foi o ajuste do CSS para a sobreposição de elementos na seção de destaque. No começo, parecia que a IA não estava entendendo bem o que eu queria; no final, ela manteve a fidelidade, mas não foi possível colocar a imagem no fundo, o que era algo que tinha destaque no wireframe.
+
+DeepSeek:
+
+1. Estrutura: A IA utilizou tags semânticas corretamente ou apenas <div>?
+A IA utilizou tags semânticas corretamente, empregando <header>, <section>, <h1>/<h2> e <label> com inputs nativos. Não houve uso excessivo de <div> genéricas, mantendo o HTML limpo e com significado estrutural.
+
+2. CSS: O layout foi feito com Flexbox/Grid ou a IA usou métodos antigos?
+O layout foi construído inteiramente com Flexbox, um método moderno e recomendado para a criação de interfaces responsivas. A organização dos elementos na página utilizou display: flex, combinado com flex-direction: column, para empilhar as seções verticalmente. O espaçamento entre os itens foi controlado com a propriedade gap, garantindo consistência visual.
+
+3. Comparação: Qual IA entendeu melhor o seu wireframe? Por quê?
+O DeepSeek, diferente do Gemini, não foi tão fiel ao wireframe, porém teve um desempenho melhor na criação de um site mais bonito visualmente e gerou elementos adicionais, o que o Gemini até então não havia feito. Esses componentes, embora úteis em um site completo, não faziam parte do esboço planejado.
+
+4. Desafio: Qual foi o maior erro que você precisou consertar manualmente?
+A parte do menu lateral e a faixa animada, onde ficam passando as escritas, apresentaram problemas que não foi possível resolver, como inserir a logo sem causar uma grande alteração no site e a inserção da imagem de fundo, pois o site não ficou exatamente como o wireframe.
+
+
+
+
+
+
+

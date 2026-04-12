@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpotBall - Encontre sua bola ideal</title>
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR ANIMADA -->
+  <div class="barra-animada">
+    <div class="texto-rolante">
+      <span>⚡ Bolas recomendadas para você</span>
+      <span>⭐ Frete grátis acima de R$199</span>
+      <span>🏆 Qualidade garantida</span>
+      <span>💎 Melhores marcas do mercado</span>
+      <span>🎯 Compare e economize</span>
+    </div>
+  </div>
+
+  <!-- HEADER COMPLETO -->
+  <header class="main-header">
+    <div class="header-container">
+
+      <!-- LOGO -->
+      <div class="logo-container">
+        <h1 class="logo">SpotBall</h1>
+        <div class="bolas-animadas">
+          <span>⚽</span>
+          <span>🏀</span>
+          <span>🎾</span>
+          <span>🏐</span>
+        </div>
+      </div>
+
+      <!-- PESQUISA -->
+      <div class="search-box">
+        <input type="text" placeholder="🔍 Pesquisar por esporte, marca ou preço...">
+        <button>Buscar</button>
+      </div>
+
+      <!-- LOGIN -->
+      <nav class="auth-nav">
+        <button class="btn-text">Cadastrar</button>
+        <button class="btn-solid">Entrar</button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- LAYOUT -->
+  <div class="layout-principal">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar-esquerda">
+      <nav>
+        <ul>
+          <li><a href="#">🏠 Início</a></li>
+          <li><a href="#">📦 Pedidos</a></li>
+          <li><a href="#">📞 Contato</a></li>
+          <li><a href="#">⭐ Favoritos</a></li>
+          <li><a href="#">⚖️ Comparar</a></li>
+        </ul>
+      </nav>
+
+      <!-- FILTROS -->
+      <div class="filtros-laterais">
+        <h4>Filtrar por:</h4>
+
+        <select>
+          <option>Esporte</option>
+          <option>Futebol</option>
+          <option>Basquete</option>
+          <option>Vôlei</option>
+          <option>Tênis</option>
+        </select>
+
+        <select>
+          <option>Preço</option>
+          <option>Até R$100</option>
+          <option>R$100 - R$200</option>
+          <option>Acima de R$200</option>
+        </select>
+
+        <select>
+          <option>Marca</option>
+          <option>Nike</option>
+          <option>Adidas</option>
+          <option>Penalty</option>
+          <option>Wilson</option>
+          <option>Mikasa</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="conteudo-principal">
+
+      <!-- HERO -->
+      <section class="hero" style="background-image: url('fundo site.jpg');">
+        <div class="hero-overlay">
+          <h1>Encontre sua bola ideal</h1>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="secao-cards">
+        <h2>⚡ Bolas em Destaque</h2>
+
+        <div class="grid-cards">
+
+          <div class="card-bola">
+            <div>⚽</div>
+            <h3>Futebol Profissional</h3>
+            <p>Nike Strike</p>
+            <p>R$ 189,90</p>
+            <button>Ver Detalhes</button>
+          </div>
+
+          <div class="card-bola">
+            <div>🏀</div>
+            <h3>Basquete Indoor</h3>
+            <p>Spalding TF-500</p>
+            <p>R$ 159,90</p>
+            <button>Ver Detalhes</button>
+          </div>
+
+          <div class="card-bola">
+            <div>🏐</div>
+            <h3>Vôlei Oficial</h3>
+            <p>Mikasa V200W</p>
+            <p>R$ 299,90</p>
+            <button>Ver Detalhes</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MARCAS -->
+      <section class="secao-marcas">
+        <h2>🏆 Marcas</h2>
+        <div class="marcas-grid">
+          <div>NIKE</div>
+          <div>ADIDAS</div>
+          <div>WILSON</div>
+          <div>PENALTY</div>
+          <div>MIKASA</div>
+        </div>
+      </section>
+
+      <!-- PREÇOS -->
+      <section class="secao-tabela">
+        <h2>💰 Tabela de Preços</h2>
+
+        <table>
+          <tr>
+            <th>Esporte</th>
+            <th>Marca</th>
+            <th>Preço</th>
+          </tr>
+          <tr>
+            <td>Futebol</td>
+            <td>Nike</td>
+            <td>R$189,90</td>
+          </tr>
+          <tr>
+            <td>Basquete</td>
+            <td>Spalding</td>
+            <td>R$159,90</td>
+          </tr>
+          <tr>
+            <td>Vôlei</td>
+            <td>Mikasa</td>
+            <td>R$299,90</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- PROMO -->
+      <section class="secao-promocoes">
+        <div class="promo-card">
+          <h3>🔥 Promoção</h3>
+          <p>Até 30% OFF em bolas</p>
+          <button>Aproveitar</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <div class="footer-grid">
+
+      <div>
+        <h4>SpotBall</h4>
+        <p>Compare e encontre sua bola ideal.</p>
+      </div>
+
+      <div>
+        <h4>Links</h4>
+        <a href="#">Sobre</a><br>
+        <a href="#">Privacidade</a>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <p>📧 contato@spotball.com</p>
+        <p>📱 (49) 9999-9999</p>
+      </div>
+
+    </div>
+
+    <p class="footer-bottom">
+      © 2026 SpotBall
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

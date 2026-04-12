@@ -1,122 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hg Bolas</title>
+    <title>SpotBall | Encontre sua bola ideal</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
+<body>
 
-    <div class="top-announcer">
-        <div class="ticker-wrap">
-            <div class="ticker-move">
-                <span class="ticker-item">FRETE GRÁTIS EM COMPRAS ACIMA DE R$299,90 • </span>
-                <span class="ticker-item">NOVAS BOLAS FIFA QUALITY PRO JÁ DISPONÍVEIS • </span>
-                <span class="ticker-item">10% OFF NA PRIMEIRA COMPRA - USE: BEMVINDO10 • </span>
-                <span class="ticker-item">FRETE GRÁTIS EM COMPRAS ACIMA DE R$299,90 • </span>
-            </div>
+    <div class="top-announcement">
+        <div class="marquee">
+            <span id="dynamic-phrases"></span>
         </div>
     </div>
 
-    <div class="site-wrapper">
-        
-        <aside class="main-sidebar">
-            <div class="sidebar-logo">
-                <img src="https://dalebol.com.br/arquivos/dalebol-header-preta.png?v=1680523035" alt="Dalebol Logo" class="logo-img">
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-box">
+                <img src="imagem/logositedevendasbolas.jpg" alt="Logo SpotBall" class="logo">
             </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-link active" title="Catálogo de Bolas">
-                    <i class="ri-football-line"></i>
-                    <span>Bolas</span>
-                </a>
-                <a href="#" class="nav-link" title="Meus Pedidos">
-                    <i class="ri-order-play-line"></i>
-                    <span>Pedidos</span>
-                </a>
-                <a href="#" class="nav-link" title="Comparador">
-                    <i class="ri-scales-3-line"></i>
-                    <span>Comparar</span>
-                </a>
-                <a href="#" class="nav-link" title="Suporte e Contato">
-                    <i class="ri-customer-service-2-line"></i>
-                    <span>Suporte</span>
-                </a>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Qual bola você procura?">
+                <button type="submit">🔍</button>
+            </div>
+
+            <nav class="auth-nav">
+                <button class="btn-text">Cadastrar</button>
+                <button class="btn-solid">Entrar</button>
             </nav>
-        </aside>
+        </div>
+    </header>
 
-        <main class="main-content">
+    <aside class="sidebar" id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#">📦 Pedidos</a></li>
+                <li><a href="#">📞 Contato</a></li>
+                <li><a href="#">⭐ Favoritos</a></li>
+                <li><a href="#">⚖️ Comparar</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-            <header class="main-header">
-                <div class="header-left">
-                    <h1 class="page-title">Sua próxima <span class="highlight">vitória</span> começa aqui.</h1>
-                </div>
-                <div class="header-right">
-                    <div class="search-bar">
-                        <i class="ri-search-line"></i>
-                        <input type="text" id="mainSearch" placeholder="Futsal profissional, Campo..." />
-                    </div>
-                    <div class="header-actions">
-                        <button class="icon-btn" title="Perfil"><i class="ri-user-line"></i></button>
-                        <button class="icon-btn cart-btn" title="Carrinho">
-                            <i class="ri-shopping-cart-2-line"></i>
-                            <span class="cart-count">0</span>
-                        </button>
-                    </div>
-                </div>
-            </header>
+    <main>
+        <section class="hero" style="background-image: url('fundo site.jpg');">
+            <div class="hero-overlay">
+                <h1>SpotBall</h1>
+                <div id="animation-container"></div> </div>
+        </section>
 
-            <section class="hero-section">
-                <div class="hero-graphic">
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=1600" alt="Jogador de futebol chutando">
-                    <div class="hero-overlay"></div>
-                </div>
-                <div class="hero-content">
-                    <h2>LINHA CHROMO FIFA QUALITY</h2>
-                    <p>Precisão milimétrica para atletas exigentes.</p>
-                    <button class="btn-primary">COMPRAR AGORA</button>
-                </div>
-            </section>
+        <section class="catalog-section">
+            <div class="section-title dark-blue">
+                <h2>Marcas</h2>
+            </div>
+            <div class="product-grid">
+                <article class="card"><div class="img-placeholder"></div><p>Nike</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Adidas</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Wilson</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Penalty</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Mikasa</p></article>
+            </div>
+        </section>
 
-            <section class="brands-section section-spacer">
-                <div class="section-header">
-                    <h3 class="section-title">MARCAS PARCEIRAS</h3>
-                    <p class="section-subtitle">Filtre por fabricante de elite</p>
-                </div>
-                <div class="brands-grid" id="brandsGrid"></div>
-            </section>
+        <section class="catalog-section">
+            <div class="section-title light-purple">
+                <h2>Preços</h2>
+            </div>
+            <div class="product-grid">
+                <article class="card"><div class="img-placeholder"></div><p>Até R$ 100</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Até R$ 200</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Custo-Benefício</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Profissionais</p></article>
+                <article class="card"><div class="img-placeholder"></div><p>Promoções</p></article>
+            </div>
+        </section>
+    </main>
 
-            <section class="products-section section-spacer">
-                <div class="section-header products-header-bar">
-                    <div>
-                        <h3 class="section-title">EQUIPAMENTOS DE ALTA PERFORMANCE</h3>
-                        <p class="section-subtitle">Selecione e compare</p>
-                    </div>
-                    <div class="filter-group">
-                        <button class="filter-pill active" data-category="all">Todos</button>
-                        <button class="filter-pill" data-category="futsal">Futsal</button>
-                        <button class="filter-pill" data-category="campo">Campo</button>
-                        <button class="filter-pill" data-category="society">Society</button>
-                    </div>
-                </div>
-                <div class="products-grid" id="productsGrid"></div>
-            </section>
-
-            <footer class="main-footer">
-                <div class="footer-bottom-ticker">
-                    <span>CONCORDE EM DISCORDAR • CONCORDE EM DISCORDAR • </span>
-                    <span>CONCORDE EM DISCORDAR • CONCORDE EM DISCORDAR • </span>
-                </div>
-            </footer>
-
-        </main>
-    </div>
-
-    <div id="toastContainer" class="toast-container"></div>
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <img src="imagem/logositedevendasbolas.jpg" alt="SpotBall" class="footer-logo">
+                <p>O design onde a lógica encontra a arte. Encontre sua performance aqui.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="#">Sobre nós</a>
+                <a href="#">Categorias</a>
+                <a href="#">Privacidade</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p>E-mail: suporte@spotball.com</p>
+                <p>Tel: (49) 9999-9999</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SpotBall. Todos os direitos reservados. Trabalho Acadêmico IFSC Chapecó.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
